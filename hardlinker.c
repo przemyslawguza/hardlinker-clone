@@ -638,8 +638,8 @@ void dive(DIR * src_dir, DIR * dst_dir, DIR * ref_dir)
                 {
                     wrap_mknod(dst_path, dst_dir, name, src_stat->st_mode, src_stat->st_rdev);
                 }
-                transfer_mode(dst_path, src_stat, dst_dir, name);
                 transfer_owner(dst_path, src_stat, dst_dir, name);
+                transfer_mode(dst_path, src_stat, dst_dir, name);
                 if ( !opt_noxattr && (S_ISREG(src_stat->st_mode) || S_ISDIR(src_stat->st_mode) ) )
                 {
                     transfer_xattr(src_dir, dst_dir, name, name);
